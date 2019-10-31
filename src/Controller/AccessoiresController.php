@@ -3,14 +3,17 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\Routing\Annotation\Route;
 
 class AccessoiresController extends AbstractController
 {
-
-    public function index(): Response
+    /**
+     * @Route("/accessoires", name="accessoires")
+     */
+    public function index()
     {
-        return new Response($this->render('accessoires/index.html.twig'));
+        return $this->render('accessoires/index.html.twig', [
+            'controller_name' => 'AccessoiresController',
+        ]);
     }
 }
